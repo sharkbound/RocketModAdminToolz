@@ -10,7 +10,7 @@ using Logger = Rocket.Core.Logging.Logger;
 
 namespace AdminToolz
 {
-    public class AdminToolz : RocketPlugin<Config>
+    public class Plugin : RocketPlugin<Config>
     {
         protected override void Load()
         {
