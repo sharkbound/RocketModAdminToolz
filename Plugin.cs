@@ -15,6 +15,7 @@ namespace AdminToolz
         protected override void Load()
         {
             Logger.Log("AdminToolz has Loaded!");
+
         }
 
         protected override void Unload()
