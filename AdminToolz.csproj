@@ -63,8 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandHolding.cs" />
+    <Compile Include="DataStorage\Structs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Helpers\ChatHelper.cs" />
+    <Compile Include="Helpers\ItemHelper.cs" />
+    <Compile Include="Helpers\PlayerHelper.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

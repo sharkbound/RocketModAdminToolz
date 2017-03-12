@@ -28,9 +28,7 @@ namespace AdminToolz.Helpers
             if (caller is Console)
                 Logger.LogWarning(msg);
             else
-            {
                 UnturnedChat.Say(caller, msg, color ?? Color.green);
-            }
         }
     }
 }

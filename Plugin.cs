@@ -28,7 +28,9 @@ namespace AdminToolz
 
         public override TranslationList DefaultTranslations => new TranslationList
         {
-            {"command_holding_help", "Invalid Parameter: /holding (player)"}
+            {"command_holding_help", "Invalid Parameter: /holding (player)"},
+            {"no_held_item_self", "You are not holding a item!"},
+            {"no_held_item_other", "Target player is not holding a item!"}
         };
     }
 }
