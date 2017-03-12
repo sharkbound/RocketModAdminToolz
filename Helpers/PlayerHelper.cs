@@ -31,17 +31,17 @@ namespace AdminToolz.Helpers
                     }
                     else
                     {
-                        if (tempP.DisplayName.ToLower().Contains(args[0].ToLower()))
+                        if (tempP.DisplayName.ToLower().Contains(searchStr.ToLower()))
                         {
                             player = tempP;
                             break;
                         }
-                        else if (tempP.SteamName.ToLower().Contains(args[0].ToLower()))
+                        else if (tempP.SteamName.ToLower().Contains(searchStr.ToLower()))
                         {
                             player = tempP;
                             break;
                         }
-                        else if (tempP.CharacterName.ToLower().Contains(args[0].ToLower()))
+                        else if (tempP.CharacterName.ToLower().Contains(searchStr.ToLower()))
                         {
                             player = tempP;
                             break;

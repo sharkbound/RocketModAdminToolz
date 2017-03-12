@@ -54,26 +54,25 @@ namespace AdminToolz.Commands
             }
             else if (command.Length == 1) // target is another player
             {
+                target = PlayerHelper.GetPlayer(command[0]);
+                iData = ItemHelper.GetItemStatsFromItem(target.Player.equipment.asset);
 
+                if (itemIsNull(false)) return;
             }
             else // Invalid parameters, send help msg
             {
                 ChatHelper.SendTranslation(caller, Color.red, "command_holding_help");
             }
-
+            
             // locale function to simplify things
             bool itemIsNull(bool self)
             {
                 if (iData.itemName == "NULL")
                 {
                     if (self)
-                    {
                         ChatHelper.SendTranslation(caller, Color.red, "no_held_item_self");
-                    }
                     else
-                    {
                         ChatHelper.SendTranslation(caller, Color.red, "no_held_item_other");
-                    }
                     return true;
                 }
                 return false;
