@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 obj/Debug/CoreCompileInputs.cache
+.vs/AdminToolz/v15/.suo
