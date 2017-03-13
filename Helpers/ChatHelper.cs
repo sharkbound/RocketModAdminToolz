@@ -12,13 +12,13 @@ namespace AdminToolz.Helpers
 {
     public class ChatHelper
     {
-        public static string Translate(string key, params string[] parameters)
+        public static string Translate(string key, params object[] parameters)
         {
             string translationResult = Plugin.Instance.Translate(key, parameters);
             return translationResult == key ? $"Translation '{key}' not found!" : translationResult;
         }
 
-        public static void SendTranslation(IRocketPlayer caller, Color color, string TranslationKey, params string[] parameters)
+        public static void SendTranslation(IRocketPlayer caller, Color color, string TranslationKey, params object[] parameters)
         {
             SendMessage(caller, Translate(TranslationKey, parameters), color);
         }

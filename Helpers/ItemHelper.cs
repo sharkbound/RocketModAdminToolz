@@ -9,7 +9,7 @@ namespace AdminToolz.Helpers
 {
     public class ItemHelper
     {
-        public static ItemStats GetItemStatsFromItem(ItemAsset i)
+        public static ItemStats GetItemStatsFromAsset(ItemAsset i)
         {
             if (i == null)
                 return new ItemStats { itemName = "NULL" };
