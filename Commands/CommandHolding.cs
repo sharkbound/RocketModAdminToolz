@@ -33,31 +33,21 @@ namespace AdminToolz.Commands
             UnturnedPlayer target;
             ItemStats iData;
 
-            // Command was called from console
-            if (console)
-            {
-                if (command.Length != 1)
-                {
-                    ChatHelper.SendTranslation(caller, Color.red, "command_holding_help");
-                    return;
-                }
-
-                return;
-            }
-
-            if (command.Length == 0) // Command in targeting the caller
+            if (!console && command.Length == 0) // Command is targeting the caller
             {
                 target = (UnturnedPlayer)caller;
-                iData = ItemHelper.GetItemStatsFromItem(target.Player.equipment.asset);
+                iData = ItemHelper.GetItemStatsFromAsset(target.Player.equipment.asset);
 
                 if (itemIsNull(true)) return;
+                ChatHelper.SendTranslation(caller, Color.green, "holding_self_msg", iData.id, iData.itemName, iData.desc);
             }
             else if (command.Length == 1) // target is another player
             {
-                target = PlayerHelper.GetPlayer(command[0]);
-                iData = ItemHelper.GetItemStatsFromItem(target.Player.equipment.asset);
+                if (!validateOtherPlayerAndItem(caller, command[0], out iData, out target))
+                    return;
 
-                if (itemIsNull(false)) return;
+                ChatHelper.SendTranslation(caller, Color.green, "holding_admin_msg", target.DisplayName, iData.id.ToString(), iData.itemName, iData.desc);
+                return;
             }
             else // Invalid parameters, send help msg
             {
@@ -77,6 +67,26 @@ namespace AdminToolz.Commands
                 }
                 return false;
             }
+        }
+
+        bool validateOtherPlayerAndItem(IRocketPlayer caller, string playername, out ItemStats i, out UnturnedPlayer p)
+        {
+            p = PlayerHelper.GetPlayer(playername);
+            i = default(ItemStats);
+
+            if (p == null)
+            {
+                ChatHelper.SendTranslation(caller, Color.red, "noplayer");
+                return false;
+            }
+
+            i = ItemHelper.GetItemStatsFromAsset(p.Player.equipment.asset);
+            if (i.itemName == "NULL")
+            {
+                ChatHelper.SendTranslation(caller, Color.red, "no_held_item_other");
+                return false;
+            }
+            return true;
         }
 
         //void itemIsNull(ItemStats iData, IRocketPlayer caller)
