@@ -32,7 +32,7 @@ namespace AdminToolz.Commands
             bool console = caller is ConsolePlayer;
             UnturnedPlayer target;
             ItemStats iData;
-
+            
             if (!console && command.Length == 0) // Command is targeting the caller
             {
                 target = (UnturnedPlayer)caller;
@@ -88,14 +88,5 @@ namespace AdminToolz.Commands
             }
             return true;
         }
-
-        //void itemIsNull(ItemStats iData, IRocketPlayer caller)
-        //{
-        //    if (iData.itemName == "NULL")
-        //    {
-        //        ChatHelper.SendTranslation(caller, Color.red, "");
-        //        return;
-        //    }
-        //}
     }
 }
