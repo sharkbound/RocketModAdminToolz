@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandHolding.cs" />
+    <Compile Include="Commands\CommandOpenDoor.cs" />
     <Compile Include="DataStorage\Structs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Helpers\ChatHelper.cs" />
